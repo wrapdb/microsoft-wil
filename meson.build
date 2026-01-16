@@ -3,7 +3,7 @@
 
 project(
   'msft_wil',
-  version: '1.0.260114.1',
+  version: '1.0.260114.2',
   meson_version: '>= 1.3.0',
   default_options: ['warning_level=3'],
 )
@@ -63,13 +63,23 @@ if pkgconfig.found()
     name: meson.project_name(),
     description: 'Windows Implementation Library',
     url: 'https://github.com/microsoft/wil',
-    dataonly: true,
+    install_dir: get_option('datadir') / 'pkgconfig',
   )
 endif
 
 docs = get_option('docs').disable_auto_if(meson.is_subproject())
-doxygen_exe = find_program('doxygen', required: docs)
+doxygen_exe = find_program(
+  'doxygen',
+  required: docs,
+)
 if doxygen_exe.found()
-  nosal2_doxyfile = configure_file(input: 'docs/nosal2.doxyfile', output: 'nosal2.doxyfile', copy: true)
+  nosal2_doxyfile = configure_file(
+    input: 'docs/nosal2.doxyfile',
+    output: 'nosal2.doxyfile',
+    copy: true,
+  )
 endif
-subdir('docs', if_found: doxygen_exe)
+subdir(
+  'docs',
+  if_found: doxygen_exe,
+)
