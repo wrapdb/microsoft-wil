@@ -3,7 +3,7 @@
 
 project(
   'msft_wil',
-  version: '1.0.260114.2',
+  version: '1.0.260123.1',
   meson_version: '>= 1.3.0',
   default_options: ['warning_level=3'],
 )
