@@ -8,6 +8,7 @@ custom_target(
     'DOXYGEN_OUTPUT_DIRECTORY': meson.current_build_dir(),
     'WIL_BUILD_VERSION': meson.project_version(),
   },
+  build_by_default: false,
   install: true,
   install_dir: get_option('datadir') / 'doc' / meson.project_name(),
   install_tag: 'doc',

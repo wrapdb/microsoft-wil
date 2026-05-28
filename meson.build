@@ -67,7 +67,7 @@ if pkgconfig.found()
   )
 endif
 
-docs = get_option('docs').disable_auto_if(meson.is_subproject())
+docs = get_option('docs')
 doxygen_exe = find_program(
   'doxygen',
   required: docs,
